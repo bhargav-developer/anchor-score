@@ -1,12 +1,12 @@
 import React from "react";
 
 const logos = [
-  { src: "/logos/amfi.png", alt: "AMFI" },
-  { src: "/logos/sebi.png", alt: "SEBI" },
-  { src: "/logos/hdfc.png", alt: "HDFC Mutual Fund" },
-  { src: "/logos/icici.png", alt: "ICICI Prudential Mutual Fund" },
-  { src: "/logos/sbi.png", alt: "SBI Mutual Fund" },
-  { src: "/logos/tata.png", alt: "Tata Mutual Fund" },
+  { src: "/S1.png", alt: "AMFI" },
+  { src: "/S2.png", alt: "SEBI" },
+  { src: "/S3.png", alt: "HDFC Mutual Fund" },
+  { src: "/S4.png", alt: "ICICI Prudential Mutual Fund" },
+  { src: "/S5.png", alt: "SBI Mutual Fund" },
+  { src: "/S6.png", alt: "Tata Mutual Fund" },
 ];
 
 export default function InfrastructureSection() {

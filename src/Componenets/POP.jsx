@@ -54,7 +54,7 @@ export default function FinancialReadinessModal({ open, onClose }) {
         {/* CLOSE */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100"
+          className="absolute top-4 right-4 p-2 rounded-full bg-green-100 text-green-500"
         >
           {!submitted && <X size={18} />}
         </button>

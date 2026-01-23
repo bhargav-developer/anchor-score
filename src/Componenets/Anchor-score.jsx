@@ -4,10 +4,10 @@ export default function AnchorScoreMeasures() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-16">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-black">
+          <h2 className="text-3xl sm:text-5xl font-bold text-black">
             What Anchor Score measures
           </h2>
-          <p className="mt-3 text-lg text-black/70">
+          <p className="mt-3 font-bold text-lg text-black/70">
             Three inputs define readiness:
           </p>
         </div>
@@ -17,12 +17,12 @@ export default function AnchorScoreMeasures() {
           {/* Income */}
           <div className="relative rounded-2xl bg-white/60 backdrop-blur border border-emerald-100 p-8 shadow-sm">
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-xl">
-              💵
+              <img src="/money-recive.png" alt="" />
             </div>
             <h3 className="mt-6 text-xl font-semibold text-black text-center">
               Income
             </h3>
-            <ul className="mt-4 space-y-2 text-sm text-black/70 text-center">
+            <ul className="mt-4 space-y-2 font-bold  text-sm text-black/70 text-center">
               <li>Dependence on continued cash flow</li>
               <li>Concentration</li>
               <li>Stability</li>
@@ -32,12 +32,13 @@ export default function AnchorScoreMeasures() {
           {/* Expenses */}
           <div className="relative rounded-2xl bg-white/60 backdrop-blur border border-emerald-100 p-8 shadow-sm">
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-xl">
-              📊
+                        <img src="/money-send.png" alt="" />
+
             </div>
             <h3 className="mt-6 text-xl font-semibold text-black text-center">
               Expenses
             </h3>
-            <ul className="mt-4 space-y-2 text-sm text-black/70 text-center">
+            <ul className="mt-4 space-y-2  font-bold text-sm text-black/70 text-center">
               <li>Essential monthly outflow</li>
               <li>Fixed obligations</li>
               <li>Non-negotiables</li>
@@ -47,12 +48,12 @@ export default function AnchorScoreMeasures() {
           {/* Savings */}
           <div className="relative rounded-2xl bg-white/60 backdrop-blur border border-emerald-100 p-8 shadow-sm">
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-xl">
-              🧾
+                   <img src="/wallet.png" alt="" />
             </div>
             <h3 className="mt-6 text-xl font-semibold text-black text-center">
               Savings
             </h3>
-            <ul className="mt-4 space-y-2 text-sm text-black/70 text-center">
+            <ul className="mt-4 space-y-2  font-bold text-sm text-black/70 text-center">
               <li>Available liquidity</li>
               <li>Emergency reserves</li>
               <li>Liquid assets</li>

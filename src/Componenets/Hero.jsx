@@ -14,16 +14,9 @@ const AnchorHero = () => {
         <div className="absolute top-0 right-[-5%] w-[35%] h-[70%] bg-gradient-to-bl from-yellow-200/30 via-green-200/20 to-transparent blur-[100px] rounded-full pointer-events-none"></div>
 
         {/* --- NAVBAR --- */}
-        <nav className="relative z-10 w-full max-w-5xl mx-auto px-6 h-24 flex items-center justify-between">
+        <nav className="relative bg-white text-black mt-5 z-10 w-full max-w-5xl mx-auto px-6 h-20 rounded-md flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="text-[#2DD482]">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              </svg>
-            </div>
-            <span className="text-xl font-bold text-[#1A1A1A]">
-              Anchor <span className="text-gray-400 font-medium">Score</span>
-            </span>
+         <img src="/Logo.png" alt="logo" />
           </div>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-[#1A1A1A]">
