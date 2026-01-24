@@ -7,7 +7,7 @@ const AnchorHero = () => {
 
   return (
     <>
-      <div className="relative min-h-screen w-full flex flex-col items-center bg-[#F8F9F8] overflow-hidden font-sans">
+      <div className="relative min-h-screen w-full flex flex-col items-center bg-[#F8F9F8] overflow-hidden ">
 
         {/* Background Gradient Blurs */}
         <div className="absolute top-0 left-[-10%] w-[40%] h-[60%] bg-gradient-to-br from-green-300/40 to-transparent blur-[120px] rounded-full pointer-events-none"></div>
