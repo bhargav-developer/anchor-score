@@ -3,7 +3,7 @@ import { Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#0b0b0b] text-gray-300 px-6 pt-20 pb-10">
+    <footer className="w-full bg-[#181818] text-gray-300 px-6 pt-20 pb-10">
       <div className="max-w-[1200px] mx-auto">
 
         {/* TOP SECTION */}
@@ -14,7 +14,7 @@ export default function Footer() {
             {/* LOGO */}
             <div className="flex items-center gap-2 text-white">
               <span className="text-xl font-semibold">
-                Anchor<span className="text-[#10c985]">Score</span>
+             <img src="/footer.png" width={200} />
               </span>
             </div>
 

@@ -44,7 +44,7 @@ export default function ReadinessStates() {
           </div>
 
           {/* Secure */}
-          <div className="rounded-xl border border-black/5 bg-white p-8 shadow-sm lg:col-start-2">
+          <div className="rounded-xl border border-black/5 bg-white p-8 shadow-sm ">
             <h3 className="text-lg font-semibold text-emerald-500">
               Secure (701-850)
             </h3>
