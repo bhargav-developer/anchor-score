@@ -14,7 +14,7 @@ const AnchorHero = () => {
         <div className="absolute top-[-5%] right-[-10%] w-[55%] h-[75%] bg-gradient-to-bl from-yellow-200/30 via-green-200/20 to-transparent blur-[120px] rounded-full pointer-events-none"></div>
 
         {/* --- NAVBAR --- */}
-        <nav className="relative bg-white text-black mt-4 sm:mt-6 z-10 w-full max-w-6xl mx-auto px-4 sm:px-8 h-20 sm:h-24 rounded-2xl flex items-center flex-wrap justify-between shadow-sm">
+        <nav className="relative bg-white text-black mt-4 sm:mt-6 z-10 w-full max-w-6xl mx-auto px-4 sm:px-8 h-20 sm:h-24 rounded-2xl flex items-center justify-between shadow-sm">
 
           {/* Logo (Bigger + Responsive) */}
           <img 
