@@ -20,8 +20,7 @@ const AnchorHero = () => {
           <img 
             src="/Logo.png" 
             alt="Anchor Score logo" 
-            className=""
-            width={250}
+            className="w-[200px] sm:w-[300px]"
           />
 
           {/* Nav Links */}
