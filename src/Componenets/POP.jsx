@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { X, Check } from "lucide-react";
 
-const SCRIPT_URL = "https://script.google.com/a/macros/myanchorscore.com/s/AKfycbwOjSeoHswRgqvKfH6GgZ-MmEbQ2u2nKm0wl9N7SWFMaDfdRVsCZDHMAcBhoZSjigtK/exec";
+const SCRIPT_URL = "https://script.google.com/a/macros/myanchorscore.com/s/AKfycbz2h-GCJdrhHGpFbL0avLG4NreZRuFS3-I3TXaOi507p3MIdvcZxrxgipebfn0-RRE3/exec";
 
 export default function FinancialReadinessModal({ open, onClose }) {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
     firstName: "",
@@ -26,14 +28,11 @@ export default function FinancialReadinessModal({ open, onClose }) {
 
   const validateForm = () => {
     const newErrors = {};
-
     if (!form.firstName.trim()) newErrors.firstName = "First name is required";
 
-    if (!form.whatsapp.trim()) {
-      newErrors.whatsapp = "WhatsApp number is required";
-    } else if (!/^[0-9]{10}$/.test(form.whatsapp)) {
+    if (!form.whatsapp.trim()) newErrors.whatsapp = "WhatsApp number is required";
+    else if (!/^[0-9]{10}$/.test(form.whatsapp))
       newErrors.whatsapp = "Enter a valid 10-digit number";
-    }
 
     if (!form.income) newErrors.income = "Select your income range";
     if (!form.savings) newErrors.savings = "Select your savings range";
@@ -49,24 +48,20 @@ export default function FinancialReadinessModal({ open, onClose }) {
     e.preventDefault();
     if (!validateForm()) return;
 
+    setLoading(true);
+
     try {
-      const res = await fetch(SCRIPT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+      await axios.post(SCRIPT_URL, JSON.stringify(form), {
+        headers: { "Content-Type": "text/plain" }, // 🔥 avoids CORS preflight
       });
 
-      const data = await res.json();
-
-      if (data.status === "success") {
-        setSubmitted(true);
-      } else {
-        alert("Submission failed. Try again.");
-      }
+      setSubmitted(true);
     } catch (err) {
-      console.error(err);
-      alert("Network error. Try again.");
+      console.error("Submission error:", err);
+      alert("Something went wrong. Please try again.");
     }
+
+    setLoading(false);
   };
 
   return (
@@ -114,13 +109,13 @@ export default function FinancialReadinessModal({ open, onClose }) {
               <div>
                 <label className="flex items-start gap-2 text-xs text-gray-600">
                   <input type="checkbox" checked={form.agree} onChange={(e) => handleChange("agree", e.target.checked)} className="mt-1" />
-                  I agree that my information will be used only to generate my Anchor Score and early access updates.
+                  I agree that my information will be used only for Anchor Score and early access updates.
                 </label>
                 {errors.agree && <p className="mt-1 text-xs text-red-500">{errors.agree}</p>}
               </div>
 
-              <button type="submit" className="w-full py-3 rounded-lg font-medium bg-[#10c985] text-white">
-                Join Early Access
+              <button type="submit" disabled={loading} className="w-full py-3 rounded-lg font-medium bg-[#10c985] text-white">
+                {loading ? "Submitting..." : "Join Early Access"}
               </button>
             </form>
           </>
