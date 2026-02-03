@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { X, Check } from "lucide-react";
 
-const SCRIPT_URL = "https://script.google.com/a/macros/myanchorscore.com/s/AKfycbz2h-GCJdrhHGpFbL0avLG4NreZRuFS3-I3TXaOi507p3MIdvcZxrxgipebfn0-RRE3/exec";
+const SCRIPT_URL = "https://script.google.com/a/macros/myanchorscore.com/s/AKfycbwjHeePivRYDf852UN16O5CRBmMUkEMyNmpaKxYjXXvj7nSpBMpT6cCwv9JCSAtEQQl/exec";
 
 export default function FinancialReadinessModal({ open, onClose }) {
   const [submitted, setSubmitted] = useState(false);
@@ -44,24 +43,33 @@ export default function FinancialReadinessModal({ open, onClose }) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setLoading(true);
 
-    try {
-      await axios.post(SCRIPT_URL, JSON.stringify(form), {
-        headers: { "Content-Type": "text/plain" }, // 🔥 avoids CORS preflight
-      });
+    const formEl = document.createElement("form");
+    formEl.action = SCRIPT_URL;
+    formEl.method = "POST";
+    formEl.target = "hidden_iframe";
 
+    Object.keys(form).forEach((key) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = key;
+      input.value = form[key];
+      formEl.appendChild(input);
+    });
+
+    document.body.appendChild(formEl);
+    formEl.submit();
+    document.body.removeChild(formEl);
+
+    setTimeout(() => {
       setSubmitted(true);
-    } catch (err) {
-      console.error("Submission error:", err);
-      alert("Something went wrong. Please try again.");
-    }
-
-    setLoading(false);
+      setLoading(false);
+    }, 800);
   };
 
   return (
@@ -121,6 +129,9 @@ export default function FinancialReadinessModal({ open, onClose }) {
           </>
         )}
       </div>
+
+      {/* Hidden iframe to avoid page redirect */}
+      <iframe name="hidden_iframe" style={{ display: "none" }} />
     </div>
   );
 }
